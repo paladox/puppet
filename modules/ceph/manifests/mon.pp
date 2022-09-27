@@ -54,7 +54,7 @@ class ceph::mon (
         require => [Concat[$temp_keyring], File["${data_dir}/mon/ceph-${::hostname}"]],
     }
 
-    service { "ceph-mon@${::hostname}":
+    service { 'ceph-mon':
         ensure  => running,
         enable  => true,
         require => [Exec['ceph-mon-mkfs'], File['/etc/ceph/ceph.conf']],
